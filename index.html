@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google-Charts</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-size: 200%; align-items:center;">Google-Charts</div>
+    <div id="piechart"></div>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load("current",{'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart(){
+            var data = google.visualization.arrayToDataTable([
+            ['Task','Hours per Day'],
+            ['Study', 8],
+            ['Friends', 3],
+            ['Eat', 2],
+            ['Social Media', 2],
+            ['Gym', 2],
+            ['Sleep', 7]
+            ]);
+
+            var options={'title':"My Average Day", 'width':600,'height':400};
+
+            var chart= new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data,options);
+        }
+    </script>
+</body>
+</html>
